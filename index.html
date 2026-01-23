@@ -31,7 +31,21 @@
     .cover span { color: #cdd3ff; opacity: .8; }
     .card { background: linear-gradient(180deg, rgba(255,255,255,.04), transparent); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
     .tracklist { display: grid; gap: 12px; }
-    .track { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; padding: 10px; border-radius: 12px; border: 1px solid var(--border); }
+    .track {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  align-items: start;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.track audio {
+  grid-column: 1 / -1;
+  width: 100%;
+}
     .num { color: var(--muted); text-align: right; }
     .title { font-weight: 600; }
     .desc { color: var(--muted); font-size: 14px; }
