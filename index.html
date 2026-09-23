@@ -3,160 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Album | 6 Tracks</title>
-  <meta name="description" content="うさぎラジオの六曲入りミニアルバムの公開ページ" />
+  <title>Mini Album | Sakura Edition</title>
+  <meta name="description" content="うさぎラジオ 六曲入りミニアルバム（桜背景バージョン）" />
   <style>
     :root {
-      --bg: #0f1220;
-      --card: #171a2e;
-      --text: #e7e9ff;
-      --muted: #a9addc;
-      --accent: #8ea2ff;
-      --border: rgba(255,255,255,.08);
+      --bg: #fff0f6;
+      --card: #ffffffcc;
+      --text: #4a2c3a;
+      --muted: #9c6f82;
+      --accent: #ff7aa8;
+      --border: rgba(255, 160, 200, .35);
     }
+
     * { box-sizing: border-box; }
+
     body {
-      margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      background: radial-gradient(1200px 600px at 10% -10%, #1b1f3f, transparent), var(--bg);
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      background:
+        radial-gradient(800px 400px at 20% -10%, #ffd6e7, transparent),
+        radial-gradient(600px 400px at 90% 10%, #ffe3ef, transparent),
+        linear-gradient(180deg, #fff0f6, #ffe4ef);
       color: var(--text);
     }
-    a { color: var(--accent); text-decoration: none; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
-    header { display: grid; gap: 16px; margin-bottom: 32px; }
-    .badge { display: inline-block; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); width: fit-content; }
-    h1 { font-size: clamp(28px, 4vw, 40px); margin: 0; }
-    .meta { color: var(--muted); }
-    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; }
-    .cover { aspect-ratio: 1/1; border-radius: 16px; background: linear-gradient(135deg, #2b2f6b, #15173a); border: 1px solid var(--border); display: grid; place-items: center; }
-    .cover span { color: #cdd3ff; opacity: .8; }
-    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), transparent); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
-    .tracklist { display: grid; gap: 12px; }
-    .track {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  grid-template-rows: auto auto;
-  gap: 12px;
-  align-items: start;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
 
-.track audio {
-  grid-column: 1 / -1;
-  width: 100%;
-}
-    .num { color: var(--muted); text-align: right; }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    header {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      width: fit-content;
+      background: white;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0;
+    }
+
+    .meta { color: var(--muted); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+    }
+
+    .cover {
+      aspect-ratio: 1/1;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(255, 150, 200, .25);
+      background: #ffe4ef;
+    }
+
+    .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .tracklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.6);
+    }
+
+    .track audio {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .num {
+      color: var(--muted);
+      text-align: right;
+      font-weight: 600;
+    }
+
     .title { font-weight: 600; }
-    .desc { color: var(--muted); font-size: 14px; }
-    audio { width: 220px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-    .btn { padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); background: #11133a; color: var(--text); }
-    .btn.primary { background: linear-gradient(135deg, #8ea2ff, #6f7cff); color: #0f1220; border: none; }
-    footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+
+    .desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    audio { width: 100%; }
+
+    footer {
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; }
-      audio { width: 100%; }
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
+
     <header>
       <span class="badge">Mini Album</span>
       <h1>うさぎラジオ ミニアルバム</h1>
-      <div class="meta"> 6 Tracks ・ 2026</div>
+      <div class="meta">6 Tracks ・ Sakura Edition</div>
     </header>
 
     <section class="hero">
-      <div class="cover"><img src=https://www.dropbox.com/scl/fi/evmdok4ben55p12bgapls/cover.jpg?rlkey=dkdfdj7lic4e8h5t2paprxent&st=totn42r7&raw=1 alt="Album Cover" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
+      <div class="cover">
+        <img src="cover.jpg" alt="Album Cover">
+      </div>
+
       <div class="card">
-        <p>「どんな色だって、キミだけの光」物理的な距離（38万キロ）を超えて、孤独な夜に寄り添い、個々の多様性を肯定する「心の秘密基地」がこのアルバムのコンセプトです。</p>
-        <!-- Streaming / Download ボタンは削除 -->
+        <p>
+          「どんな色だって、キミだけの光」
+          桜色の空気に包まれながら、
+          孤独な夜にも、やわらかく寄り添うミニアルバム。
+        </p>
       </div>
     </section>
 
-    <section id="tracks" class="card" style="margin-top:24px;">
+    <section class="card" style="margin-top:24px;">
       <h2 style="margin-top:0;">Tracklist</h2>
+
       <div class="tracklist">
+
         <div class="track">
           <div class="num">01</div>
           <div>
             <div class="title">うさぎロケット</div>
-            <div class="desc">聴く人の背中を宇宙まで押し上げる、希望のブースター</div>
+            <div class="desc">希望を宇宙まで押し上げるブースター</div>
           </div>
-          <audio
-  controls
-  playsinline
-  preload="none"
-  src="https://dl.dropboxusercontent.com/scl/fi/ch14txhhlg56axjbv9o0f/track01.mp3?rlkey=f8f5ct0xyewrxwvywyosif4z9&st=56lfc7c3&raw=1"></audio>
+          <audio controls playsinline preload="none" src="track01 うさぎロケット.mp3"></audio>
         </div>
+
         <div class="track">
           <div class="num">02</div>
           <div>
             <div class="title">うさぎマジック</div>
-            <div class="desc">見慣れた景色が七色のパステルに染まっていく魔法のメロディ</div>
+            <div class="desc">世界を少しだけ優しく塗り替える魔法</div>
           </div>
-          <audio
-  controls
-  playsinline
-  preload="none"
-  src="https://dl.dropboxusercontent.com/scl/fi/a6zyckuz53ojps0vnjz91/track02.mp3?rlkey=4atqve5cig08intbn02vi7j0t&st=jbffevnp&raw=1"></audio>
+          <audio controls playsinline preload="none" src="track02 うさぎマジック.mp3"></audio>
         </div>
+
         <div class="track">
           <div class="num">03</div>
           <div>
             <div class="title">うさぎアイランド</div>
-            <div class="desc">境界線のない海を渡り、新しい自分に出会うためのカラフルな航海記</div>
+            <div class="desc">境界線のない海を渡るカラフルな航海</div>
           </div>
-          <audio
-  controls
-  playsinline
-  preload="none"
-  src="https://dl.dropboxusercontent.com/scl/fi/fc36rwfcbbepme2sufzhn/track03.mp3?rlkey=baw27m9r3jysuf6xiol4qkgw3&st=1uapnius&raw=1"></audio>
+          <audio controls playsinline preload="none" src="track03 うさぎアイランド.mp3"></audio>
         </div>
+
         <div class="track">
           <div class="num">04</div>
           <div>
             <div class="title">反逆のプリズム</div>
-            <div class="desc">自由を掴み取れ！虹色の閃光が、退屈な夜を鮮やかに焼き尽くす</div>
+            <div class="desc">退屈な夜を虹色に裂く閃光</div>
           </div>
-          <audio
-  controls
-  playsinline
-  preload="none"
-  src="https://dl.dropboxusercontent.com/scl/fi/4s58ljnd0jozfk56qcw7q/track04.mp3?rlkey=evafuxufj2y0elmhkonluwc2b&st=npoyz6z2&raw=1"></audio>
+          <audio controls playsinline preload="none" src="track04 反逆のプリズム.mp3"></audio>
         </div>
+
         <div class="track">
           <div class="num">05</div>
           <div>
             <div class="title">３８万キロ</div>
-            <div class="desc">夜の終わりに、独りきりのあなたの隣でそっと寄り添うバラード</div>
+            <div class="desc">夜の隣に寄り添うバラード</div>
           </div>
-          <audio
-  controls
-  playsinline
-  preload="none"
-  src="https://dl.dropboxusercontent.com/scl/fi/b7ngtgs0cxrwqioe73siz/track05.mp3?rlkey=qi8ufb53pd83ckghay1k7rvxv&st=3h5aqy0q&raw=1"></audio>
+          <audio controls playsinline preload="none" src="track05 ３８万キロ.mp3"></audio>
         </div>
+
         <div class="track">
           <div class="num">06</div>
           <div>
-            <div class="title">うさぎラジオ　ON AIR</div>
-            <div class="desc">チューニングを合わせたら、そこは月面の秘密基地</div>
+            <div class="title">うさぎラジオ ON AIR</div>
+            <div class="desc">月面の秘密基地からの放送</div>
           </div>
-          <audio
-  controls
-  playsinline
-  preload="none"
-  src="https://dl.dropboxusercontent.com/scl/fi/iuaqe0mcggmk8vljzkmci/track06.mp3?rlkey=4flh4ybme7sgztfvo1kv9hgca&st=4ms3iv3p&raw=1"></audio>
+          <audio controls playsinline preload="none" src="track06 うさぎラジオ　ON AIR.mp3"></audio>
         </div>
+
       </div>
     </section>
 
     <footer>
-
+      ありがとう、聴いてくれて。
     </footer>
+
   </div>
 </body>
 </html>
